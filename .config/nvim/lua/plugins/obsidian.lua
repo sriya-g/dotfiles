@@ -15,12 +15,12 @@ return {
     opts = {
         workspaces = {
             {
-                name = "personal",
-                path = "~/vaults/personal",
+                name = "cs340_notes",
+                path = "~/Documents/cs340_notes",
             },
             {
-                name = "work",
-                path = "~/vaults/work",
+                name = "commonplace_book",
+                path = "~/Documents/commonplace_book",
             },
         },
 
