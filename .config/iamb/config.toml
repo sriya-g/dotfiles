@@ -1,0 +1,8 @@
+[profiles.user]
+user_id = "@sriya-g33:matrix.org"
+
+[settings]
+image_preview = {"kitty"}
+
+[settings.notifications]
+enabled = true
