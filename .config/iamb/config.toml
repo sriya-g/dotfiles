@@ -2,7 +2,11 @@
 user_id = "@sriya-g33:matrix.org"
 
 [settings]
-image_preview = {"kitty"}
+message_user_color = true
+
+[settings.image_preview]
+protocol.type = "kitty"
 
 [settings.notifications]
 enabled = true
+
