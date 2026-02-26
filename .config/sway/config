@@ -48,6 +48,9 @@ default_border none
 
 ### Input configuration
 #
+input type:touchpad {
+    pointer_accel 0.7 # set mouse sensitivity (between -1 and 1)
+}
 # Example configuration:
 #
 #   input type:touchpad {

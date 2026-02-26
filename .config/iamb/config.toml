@@ -9,4 +9,3 @@ protocol.type = "kitty"
 
 [settings.notifications]
 enabled = true
-
