@@ -1,100 +1,54 @@
-/*Colorschemes, there are Gruvbox, Tokyo Night, and Everforest by default. The way it works is whichever colorscheme section is defined last will be used. Here everforest is last, but put any one you want to use as the last one.*/
+/* Rosé Pine for Waybar (https://github.com/rose-pine/waybar) */
+@import "./rose-pine.css";
+/* @import "./rose-pine-moon.css"; */
+/* @import "./rose-pine-dawn.css"; */
 
-
-
-/* Tokyo Night */
-@define-color background #1a1b26;
-@define-color background-light #24283b;
-@define-color foreground #c0caf5;
-@define-color black #15161e;
-@define-color red #f7768e;
-@define-color green #9ece6a;
-@define-color yellow #e0af68;
-@define-color blue #7aa2f7;
-@define-color magenta #bb9af7;
-@define-color cyan #7dcfff;
-@define-color white #a9b1d6;
-@define-color orange #ff9e64;
-
-
-/* Everforest Dark Colors */
-@define-color background #2b3339;
-@define-color background-light #323c41;
-@define-color foreground #d3c6aa;
-@define-color black #3c474d;
-@define-color red #e67e80;
-@define-color green #a7c080;
-@define-color yellow #dbbc7f;
-@define-color blue #7fbbb3;
-@define-color magenta #d699b6;
-@define-color cyan #83c092;
-@define-color white #d3c6aa;
-@define-color orange #e69875;
-
-/* Pastel TTY Colors */
-@define-color background #212121;
-@define-color background-light #3a3a3a;
-@define-color foreground #e0e0e0;
-@define-color black #5a5a5a;
-@define-color red #ff9a9e;
-@define-color green #b5e8a9;
-@define-color yellow #ffe6a7;
-@define-color blue #63a4ff;
-@define-color magenta #dda0dd;
-@define-color cyan #a3e8e8;
-@define-color white #ffffff;
-@define-color orange #ff8952;
-
-
-
-/* Gruvbox Dark Colors */
-@define-color background #282828;
-@define-color background-light #3c3836;
-@define-color foreground #ebdbb2;
-@define-color black #32302f;
-@define-color red #cc241d;
-@define-color green #98971a;
-@define-color yellow #d79921;
-@define-color blue #458588;
-@define-color magenta #b16286;
-@define-color cyan #689d6a;
-@define-color white #ebdbb2;
-@define-color orange #d65d0e;
-
-
+/* Color aliases */
+@define-color background @base;
+@define-color background-light @surface;
+@define-color foreground @text;
+@define-color black @overlay;
+@define-color red @love;
+@define-color green @pine;
+@define-color yellow @gold;
+@define-color blue @foam;
+@define-color magenta @iris;
+@define-color cyan @rose;
+@define-color white @text;
+@define-color orange @gold;
 
 /* Module-specific colors */
-@define-color workspaces-color @foreground;
-@define-color workspaces-focused-bg @green;
-@define-color workspaces-focused-fg @cyan;
-@define-color workspaces-urgent-bg @red;
-@define-color workspaces-urgent-fg @black;
+@define-color workspaces-color @subtle;
+@define-color workspaces-focused-bg @surface;
+@define-color workspaces-focused-fg @rose;
+@define-color workspaces-urgent-bg @love;
+@define-color workspaces-urgent-fg @base;
 
 /* Text and border colors for modules */
-@define-color mode-color @orange;
-@define-color mpd-color @magenta;
-@define-color weather-color @magenta;
-@define-color playerctl-color @magenta;
-@define-color clock-color @blue;
-@define-color cpu-color @green;
-@define-color memory-color @magenta;
-@define-color temperature-color @yellow;
-@define-color temperature-critical-color @red;
-@define-color battery-color @cyan;
-@define-color battery-charging-color @green;
-@define-color battery-warning-color @yellow;
-@define-color battery-critical-color @red;
-@define-color network-color @blue;
-@define-color network-disconnected-color @red;
-@define-color pulseaudio-color @orange;
-@define-color pulseaudio-muted-color @red;
-@define-color backlight-color @yellow;
-@define-color disk-color @cyan;
-@define-color uptime-color @green;
-@define-color updates-color @orange;
-@define-color quote-color @green;
-@define-color idle-inhibitor-color @foreground;
-@define-color idle-inhibitor-active-color @red;
+@define-color mode-color @love;
+@define-color mpd-color @iris;
+@define-color weather-color @iris;
+@define-color playerctl-color @iris;
+@define-color clock-color @iris;
+@define-color pulseaudio-color @rose;
+@define-color pulseaudio-muted-color @muted;
+@define-color backlight-color @gold;
+@define-color network-color @foam;
+@define-color network-disconnected-color @love;
+@define-color cpu-color @pine;
+@define-color memory-color @iris;
+@define-color temperature-color @rose;
+@define-color temperature-critical-color @love;
+@define-color battery-color @foam;
+@define-color battery-charging-color @pine;
+@define-color battery-warning-color @gold;
+@define-color battery-critical-color @love;
+@define-color disk-color @iris;
+@define-color uptime-color @pine;
+@define-color updates-color @gold;
+@define-color quote-color @pine;
+@define-color idle-inhibitor-color @text;
+@define-color idle-inhibitor-active-color @love;
 
 * {
     /* Base styling for all modules */
@@ -113,7 +67,7 @@ window#waybar {
 
 
 /* Common module styling with border-bottom */
-#mode, #mpd, #custom-weather, #custom-playerctl, #clock, #cpu,
+#mode, #mpd, #custom-weather, #custom-playerctl, #mpris, #clock, #cpu,
 #memory, #temperature, #battery, #network, #pulseaudio,
 #backlight, #disk, #custom-uptime, #custom-updates, #custom-quote,
 #idle_inhibitor, #tray {
@@ -169,17 +123,20 @@ window#waybar {
     border-bottom-color: @weather-color;
 }
 
-#custom-playerctl {
+#custom-playerctl,
+#mpris {
     color: @playerctl-color;
     border-bottom-color: @playerctl-color;
 }
 
-#custom-playerctl.Playing {
+#custom-playerctl.Playing,
+#mpris.playing {
     color: @cyan;
     border-bottom-color: @cyan;
 }
 
-#custom-playerctl.Paused {
+#custom-playerctl.Paused,
+#mpris.paused {
     color: @orange;
     border-bottom-color: @orange;
 }
