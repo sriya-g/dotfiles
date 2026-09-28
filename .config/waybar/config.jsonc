@@ -77,14 +77,6 @@
         "tooltip": true
     },
 
-    "custom/quote": {
-        "format": "󰭹  {}",
-        "interval": 3600,
-        "exec": "fortune -s",
-        "on-click": "fortune | yad --text-info --width=400 --height=200 --title='Fortune'",
-        "tooltip": true
-    },
-
 "custom/updates": {
     "format": "󰚰  {}",
     "exec": "dnf check-update -q | grep -v '^$' | wc -l",
@@ -149,7 +141,10 @@
     },
 
     "temperature": {
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
         "critical-threshold": 80,
+        "interval": 2,
         "format": "{icon}  {temperatureC}°C",
         "format-icons": ["󱃃", "󰔏", "󱃂"],
         "on-click": "kitty -e s-tui"
