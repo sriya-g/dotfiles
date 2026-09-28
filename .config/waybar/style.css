@@ -130,12 +130,14 @@ window#waybar {
 }
 
 #custom-playerctl.Playing,
+#custom-playerctl.playing,
 #mpris.playing {
     color: @cyan;
     border-bottom-color: @cyan;
 }
 
 #custom-playerctl.Paused,
+#custom-playerctl.paused,
 #mpris.paused {
     color: @orange;
     border-bottom-color: @orange;
