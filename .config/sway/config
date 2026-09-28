@@ -19,6 +19,7 @@ set $term kitty
 set $menu rofi -show drun
 
 exec /usr/libexec/polkit-mate-authentication-agent-1
+exec mako
 
 # Set default border to none
 default_border none

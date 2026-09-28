@@ -1,54 +1,53 @@
-/* Rosé Pine for Waybar (https://github.com/rose-pine/waybar) */
-@import "./rose-pine.css";
-/* @import "./rose-pine-moon.css"; */
-/* @import "./rose-pine-dawn.css"; */
+/* Catppuccin Mocha for Waybar */
+@import "./catppuccin-mocha.css";
 
 /* Color aliases */
 @define-color background @base;
-@define-color background-light @surface;
+@define-color background-light @surface0;
 @define-color foreground @text;
-@define-color black @overlay;
-@define-color red @love;
-@define-color green @pine;
-@define-color yellow @gold;
-@define-color blue @foam;
-@define-color magenta @iris;
-@define-color cyan @rose;
+@define-color black @surface1;
+@define-color red @red;
+@define-color green @green;
+@define-color yellow @yellow;
+@define-color blue @blue;
+@define-color magenta @mauve;
+@define-color cyan @teal;
 @define-color white @text;
-@define-color orange @gold;
+@define-color orange @peach;
 
 /* Module-specific colors */
-@define-color workspaces-color @subtle;
-@define-color workspaces-focused-bg @surface;
-@define-color workspaces-focused-fg @rose;
-@define-color workspaces-urgent-bg @love;
+@define-color workspaces-color @overlay0;
+@define-color workspaces-focused-bg @surface0;
+@define-color workspaces-focused-fg @mauve;
+@define-color workspaces-urgent-bg @red;
 @define-color workspaces-urgent-fg @base;
 
 /* Text and border colors for modules */
-@define-color mode-color @love;
-@define-color mpd-color @iris;
-@define-color weather-color @iris;
-@define-color playerctl-color @iris;
-@define-color clock-color @iris;
-@define-color pulseaudio-color @rose;
-@define-color pulseaudio-muted-color @muted;
-@define-color backlight-color @gold;
-@define-color network-color @foam;
-@define-color network-disconnected-color @love;
-@define-color cpu-color @pine;
-@define-color memory-color @iris;
-@define-color temperature-color @rose;
-@define-color temperature-critical-color @love;
-@define-color battery-color @foam;
-@define-color battery-charging-color @pine;
-@define-color battery-warning-color @gold;
-@define-color battery-critical-color @love;
-@define-color disk-color @iris;
-@define-color uptime-color @pine;
-@define-color updates-color @gold;
-@define-color quote-color @pine;
+@define-color mode-color @red;
+@define-color mpd-color @mauve;
+@define-color weather-color @sky;
+@define-color quote-color @green;
+
+@define-color playerctl-color @flamingo;
+@define-color clock-color @mauve;
+@define-color pulseaudio-color @blue;
+@define-color pulseaudio-muted-color @overlay0;
+@define-color backlight-color @yellow;
+@define-color network-color @sapphire;
+@define-color network-disconnected-color @red;
+@define-color cpu-color @green;
+@define-color memory-color @lavender;
+@define-color temperature-color @rosewater;
+@define-color temperature-critical-color @red;
+@define-color battery-color @teal;
+@define-color battery-charging-color @green;
+@define-color battery-warning-color @yellow;
+@define-color battery-critical-color @maroon;
+@define-color disk-color @pink;
+@define-color uptime-color @sky;
+@define-color updates-color @peach;
 @define-color idle-inhibitor-color @text;
-@define-color idle-inhibitor-active-color @love;
+@define-color idle-inhibitor-active-color @red;
 
 * {
     /* Base styling for all modules */
