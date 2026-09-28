@@ -78,23 +78,23 @@
     },
 
     "custom/quote": {
-        "format": "󰚛 {}",
+        "format": "󰭹  {}",
         "interval": 3600,
         "exec": "fortune -s",
         "on-click": "fortune | yad --text-info --width=400 --height=200 --title='Fortune'",
         "tooltip": true
     },
 
-    "custom/updates": {
-        "format": "󰚰 {}",
-        "exec": "checkupdates | wc -l",
-        "interval": 3600,
-        "on-click": "kitty -e sudo pacman -Syu",
-        "signal": 8
-    },
+"custom/updates": {
+    "format": "󰚰  {}",
+    "exec": "dnf check-update -q | grep -v '^$' | wc -l",
+    "interval": 3600,
+    "on-click": "kitty -e sudo dnf upgrade",
+    "signal": 8
+},
 
     "custom/uptime": {
-        "format": "󰔟 {}",
+        "format": "󰔟  {}",
         "exec": "uptime -p | sed 's/up //; s/ days/d/; s/ hours/h/; s/ minutes/m/'",
         "interval": 60
     },
@@ -109,7 +109,7 @@
     },
 
     "clock": {
-        "format": "󰥔 {:%H:%M}",
+        "format": "󰥔  {:%H:%M}",
         "format-alt": "󰃮 {:%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
@@ -136,21 +136,21 @@
     },
 
     "cpu": {
-        "format": "󰘚 {usage}%",
+        "format": "󰘚  {usage}%",
         "tooltip": true,
         "interval": 1,
         "on-click": "kitty -e htop"
     },
 
     "memory": {
-        "format": "󰍛 {}%",
+        "format": "󰍛  {}%",
         "interval": 1,
         "on-click": "kitty -e htop"
     },
 
     "temperature": {
         "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
+        "format": "{icon}  {temperatureC}°C",
         "format-icons": ["󱃃", "󰔏", "󱃂"],
         "on-click": "kitty -e s-tui"
     },
@@ -161,27 +161,27 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": "󰚥 {capacity}%",
-        "format-alt": "{icon} {time}",
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged": "󰚥  {capacity}%",
+        "format-alt": "{icon}  {time}",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "network": {
-        "format-wifi": "󰖩 {essid} ({signalStrength}%)",
-        "format-ethernet": "󰈀 {ifname}",
-        "format-linked": "󰈀 {ifname} (No IP)",
-        "format-disconnected": "󰖪 Disconnected",
+        "format-wifi": "󰖩  {essid} ({signalStrength}%)",
+        "format-ethernet": "󰈀  {ifname}",
+        "format-linked": "󰈀  {ifname} (No IP)",
+        "format-disconnected": "󰖪  Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}",
         "on-click": "kitty -e nmtui"
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "󰂰 {volume}%",
-        "format-bluetooth-muted": "󰂲 {icon}",
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "󰂰  {volume}%",
+        "format-bluetooth-muted": "󰂲  {icon}",
         "format-muted": "󰝟",
         "format-icons": {
             "headphone": "󰋋",
@@ -199,7 +199,7 @@
     },
 
     "backlight": {
-        "format": "{icon} {percent}%",
+        "format": "{icon}  {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set +5%",
         "on-scroll-down": "brightnessctl set 5%-"
@@ -207,7 +207,7 @@
 
     "disk": {
         "interval": 30,
-        "format": "󰋊 {percentage_used}%",
+        "format": "󰋊  {percentage_used}%",
         "path": "/",
         "on-click": "kitty -e gdu /"
     },
