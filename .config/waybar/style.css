@@ -6,10 +6,6 @@
 @define-color background-light @surface0;
 @define-color foreground @text;
 @define-color black @surface1;
-@define-color red @red;
-@define-color green @green;
-@define-color yellow @yellow;
-@define-color blue @blue;
 @define-color magenta @mauve;
 @define-color cyan @teal;
 @define-color white @text;
@@ -36,14 +32,21 @@
 @define-color network-color @sapphire;
 @define-color network-disconnected-color @red;
 @define-color cpu-color @green;
+@define-color cpu-warning-color @yellow;
+@define-color cpu-critical-color @red;
 @define-color memory-color @lavender;
+@define-color memory-warning-color @yellow;
+@define-color memory-critical-color @red;
 @define-color temperature-color @rosewater;
+@define-color temperature-warning-color @yellow;
 @define-color temperature-critical-color @red;
 @define-color battery-color @teal;
 @define-color battery-charging-color @green;
 @define-color battery-warning-color @yellow;
-@define-color battery-critical-color @maroon;
+@define-color battery-critical-color @red;
 @define-color disk-color @pink;
+@define-color disk-warning-color @yellow;
+@define-color disk-critical-color @red;
 @define-color uptime-color @sky;
 @define-color updates-color @peach;
 @define-color idle-inhibitor-color @text;
@@ -95,8 +98,10 @@ window#waybar {
     font-weight: 900;
 }
 
-#workspaces button.urgent {
-    background-color: @workspaces-urgent-bg;
+#workspaces button.urgent,
+#workspaces button.urgent:hover {
+    background: @workspaces-urgent-bg;
+    background-image: none;
     color: @workspaces-urgent-fg;
 }
 
@@ -152,14 +157,39 @@ window#waybar {
     border-bottom-color: @cpu-color;
 }
 
+#cpu.warning {
+    color: @cpu-warning-color;
+    border-bottom-color: @cpu-warning-color;
+}
+
+#cpu.critical {
+    color: @cpu-critical-color;
+    border-bottom-color: @cpu-critical-color;
+}
+
 #memory {
     color: @memory-color;
     border-bottom-color: @memory-color;
 }
 
+#memory.warning {
+    color: @memory-warning-color;
+    border-bottom-color: @memory-warning-color;
+}
+
+#memory.critical {
+    color: @memory-critical-color;
+    border-bottom-color: @memory-critical-color;
+}
+
 #temperature {
     color: @temperature-color;
     border-bottom-color: @temperature-color;
+}
+
+#temperature.warning {
+    color: @temperature-warning-color;
+    border-bottom-color: @temperature-warning-color;
 }
 
 #temperature.critical {
@@ -177,12 +207,12 @@ window#waybar {
     border-bottom-color: @battery-charging-color;
 }
 
-#battery.warning:not(.charging) {
+#battery.warning:not(.charging):not(.plugged) {
     color: @battery-warning-color;
     border-bottom-color: @battery-warning-color;
 }
 
-#battery.critical:not(.charging) {
+#battery.critical:not(.charging):not(.plugged) {
     color: @battery-critical-color;
     border-bottom-color: @battery-critical-color;
 }
@@ -215,6 +245,16 @@ window#waybar {
 #disk {
     color: @disk-color;
     border-bottom-color: @disk-color;
+}
+
+#disk.warning {
+    color: @disk-warning-color;
+    border-bottom-color: @disk-warning-color;
+}
+
+#disk.critical {
+    color: @disk-critical-color;
+    border-bottom-color: @disk-critical-color;
 }
 
 #custom-uptime {

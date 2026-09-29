@@ -4,7 +4,7 @@
     "height": 30,
     "spacing": 1,
     "margin": 0,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/weather", "custom/quote"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/weather"],
     "modules-center": [],                                                                            //battery   //disk     // uptime      //updates        // systray
     "modules-right": ["custom/playerctl", "clock", "pulseaudio", "backlight", "network", "cpu", "memory", "temperature", "battery", "disk", "custom/uptime", "custom/updates", "tray"],
 
@@ -131,18 +131,27 @@
         "format": "󰘚  {usage}%",
         "tooltip": true,
         "interval": 1,
-        "on-click": "kitty -e htop"
+        "on-click": "kitty -e htop",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
     },
 
     "memory": {
         "format": "󰍛  {}%",
         "interval": 1,
-        "on-click": "kitty -e htop"
+        "on-click": "kitty -e htop",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
     },
 
     "temperature": {
         "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
         "input-filename": "temp1_input",
+        "warning-threshold": 70,
         "critical-threshold": 80,
         "interval": 2,
         "format": "{icon}  {temperatureC}°C",
@@ -204,7 +213,11 @@
         "interval": 30,
         "format": "󰋊  {percentage_used}%",
         "path": "/",
-        "on-click": "kitty -e gdu /"
+        "on-click": "kitty -e gdu /",
+        "states": {
+            "warning": 80,
+            "critical": 90
+        }
     },
 
     "tray": {
