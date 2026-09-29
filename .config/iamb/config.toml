@@ -9,3 +9,6 @@ protocol.type = "kitty"
 
 [settings.notifications]
 enabled = true
+
+[layout]
+style = "restore"

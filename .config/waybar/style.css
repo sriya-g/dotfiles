@@ -2,7 +2,7 @@
 @import "./catppuccin-mocha.css";
 
 /* Color aliases */
-@define-color background @base;
+@define-color background rgba(30, 30, 46, 0.85);
 @define-color background-light @surface0;
 @define-color foreground @text;
 @define-color black @surface1;
