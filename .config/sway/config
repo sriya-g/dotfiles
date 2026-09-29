@@ -30,7 +30,7 @@ default_floating_border none
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/sriyag/Pictures/icons/thumb-1920-1493-1919146481.jpg fill
+output * bg /home/sriyag/Pictures/icons/cubes-7.png fill
 #
 output eDP-1 position -1920,0
 # Example configuration:
