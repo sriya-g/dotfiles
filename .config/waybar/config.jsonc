@@ -38,20 +38,6 @@
         "format": "<span style=\"italic\">{}</span>"
     },
 
-    "mpris": {
-        "format": "{player_icon}  {dynamic}",
-        "format-paused": "{status_icon}  {dynamic}",
-        "dynamic-order": ["title", "artist", "album"],
-        "player-icons": {
-            "default": "▶",
-            "mpv": "🎵"
-        },
-        "status-icons": {
-            "paused": "⏸"
-        }
-        // "ignored-players": ["firefox"]
-    },
-
     "custom/playerctl": {
         "format": "{icon}  {text}",
         "return-type": "json",
@@ -64,7 +50,10 @@
             "stopped": "󰐊",
             "default": "󰐊"
         },
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{default(artist, xesam:albumArtist)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}} - {{default(artist, xesam:albumArtist)}}\", \"alt\": \"{{status}}\", \"class\": [\"{{status}}\", \"{{lc(status)}}\"]}' -F",
+"exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{markup_escape(default(artist, xesam:albumArtist))}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}} - {{markup_escape(default(artist, xesam:albumArtist))}}\", \"alt\": \"{{status}}\", \"class\": [\"{{status}}\", \"{{lc(status)}}\"]}' -F | jq --unbuffered -c '.text |= .[0:80]'",
+
+
+
         "on-click": "playerctl play-pause",
         "on-click-middle": "playerctl previous",
         "on-click-right": "playerctl next"
